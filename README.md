@@ -6,4 +6,5 @@ Para Fazer:
 <li>Tela está invertida em relação ou eixo X </li>
 <li>Ler instruções de arquivo de texto</li>
 <li>Saída para arquivo de texto</li>
+<li>Adicionar tratamento de exceções</li>
 </ol>
