@@ -12,6 +12,7 @@ private:
 public:
     Circulo(int x, int y, int r, bool p);
     void draw(Screen &t);
+    void operator()(int x, int y, int r, bool p);
 };
 
 #endif // CIRCULO_H

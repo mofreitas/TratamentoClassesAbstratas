@@ -40,3 +40,10 @@ void Circulo::draw(Screen &t)
     }
 }
 
+void Circulo::operator()(int x, int y, int r, bool p)
+{
+    centro.setXY(x, y);
+    raio = r;
+    preenchido = p;
+}
+
