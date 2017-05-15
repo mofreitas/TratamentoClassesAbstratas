@@ -1,0 +1,7 @@
+dim 50 50
+brush @
+rectangle 20 20 10 10
+
+line 10 10 20 20
+circle 25 25 25 false
+hue 

@@ -12,10 +12,10 @@ using namespace std;
 
 void ler()
 {
-    Screen t;
+    Screen *t;
     FiguraGeometrica *f;
     ifstream entrada;
-    string comando, arquivo="C:/Users/Suporte/Desktop/texte.txt";
+    string comando, arquivo="/home/jose/TratamentoClassesAbstratas/teste.txt";
     cout << "Digite o caminho do arquivo a ser lido: " << endl;
     //cin >> arquivo;
     entrada.open(arquivo);
@@ -26,12 +26,16 @@ void ler()
         {
             stringstream ss(s);
             ss >> comando;
-            if(comando=="dim")
+            if(!ss.good())
+            {
+                cout << "Linha sem comando" << endl;
+            }
+            else if(comando=="dim")
             {
                 int largura = 0, altura = 0;
                 ss >> largura;
                 ss >> altura;
-                t(altura, largura);
+                t=new Screen(altura, largura);
             }
             else if(comando=="brush")
             {
@@ -40,7 +44,7 @@ void ler()
                 if(!ss.good()){
                     brush = ' ';
                 }
-                t.setBrush(brush);
+                t->setBrush(brush);
             }
             else if(comando=="line")
             {
@@ -50,9 +54,10 @@ void ler()
                 ss>>x1;
                 ss>>y1;
                 f=new Reta(x0, y0, x1, y1);
-                f->draw(t);
-                cout << t;
+                f->draw(*t);
+                cout << *t;
                 delete(f);
+                t->clear(); //limpardesenho
             }
             else if(comando=="rectangle")
             {
@@ -62,9 +67,10 @@ void ler()
                 ss>>largura;
                 ss>>altura;
                 f=new Retangulo(x0, y0, largura, altura);
-                f->draw(t);
-                cout << t;
+                f->draw(*t);
+                cout << *t;
                 delete(f);
+                t->clear(); //limpardesenho
             }
             else if(comando=="circle")
             {
@@ -75,16 +81,17 @@ void ler()
                 ss>>raio;
                 ss>>preenche;
                 f=new Circulo(x0,y0,raio,preenche);
-                f->draw(t);
-                cout << t;
-                delete(f);
+                f->draw(*t);
+                cout << *t;
+                delete(f);                
+                t->clear(); //limpardesenho
             }
             else
             {
-                cout << "Comando não identificado" << endl;
+                cout << "Comando invalido" << endl;
             }
-            t.clear();
         }
+        comando.clear();
     }
 
 }
@@ -108,7 +115,6 @@ int main()
     c.draw(n);
     cout << n;
     n.clear();*/
-
     ler();
     return 0;
 }
