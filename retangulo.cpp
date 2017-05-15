@@ -23,10 +23,4 @@ void Retangulo::draw(Screen &t)
     }
 }
 
-void Retangulo::operator()(int x, int y, int largura, int altura)
-{
-    p0.setXY(x, y);
-    this->largura=largura;
-    this->altura=altura;
-}
 

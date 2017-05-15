@@ -20,6 +20,7 @@ Screen::Screen(int nlin, int ncol)
     }
 }
 
+
 void Screen::setPixel(int x, int y)
 {
     //linha = eixo y, coluna = eixo x

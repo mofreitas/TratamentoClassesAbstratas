@@ -16,34 +16,27 @@ void Circulo::draw(Screen &t)
     int fimy = centro.getY()+raio;
     int calc;
 
-    for(int x = inicx;x<=fimx;x++)
+    for(int x=inicx; x<=fimx; x++)
     {
-        calc=round(sqrt(pow(raio,2)-pow(x-centro.getX(), 2))+centro.getY());
-        t.setPixel(x, calc);
-        calc=round(centro.getY()-sqrt(pow(raio,2)-pow(x-centro.getX(), 2)));
-        t.setPixel(x, calc);
-    }
-
-    if(preenchido)
-    {
-        for(int x = inicx;x<=fimx;x++)
+        for(int y=inicy;y<=fimy;y++)
         {
-            for(int y = inicy;y<=fimy;y++)
+            calc=round(sqrt(pow(y-centro.getY(),2)+pow(x-centro.getX(), 2)));
+            if(preenchido)
             {
-               calc=round(sqrt(pow(x-centro.getX(), 2)+pow(y-centro.getY(), 2)));
-               if(calc<=raio)
-               {
+                if(calc<=raio)
+                {
+                     t.setPixel(x, y);
+                }
+            }
+            else
+            {
+                if(calc==raio)
+                {
                     t.setPixel(x, y);
-               }
+                }
             }
         }
     }
 }
 
-void Circulo::operator()(int x, int y, int r, bool p)
-{
-    centro.setXY(x, y);
-    raio = r;
-    preenchido = p;
-}
 

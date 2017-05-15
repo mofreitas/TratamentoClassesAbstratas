@@ -6,12 +6,14 @@
 #include "retangulo.h"
 #include <fstream>
 #include <string>
+#include <sstream>
 
 using namespace std;
 
 void ler()
 {
-    Screen *t;
+    Screen t;
+    FiguraGeometrica *f;
     ifstream entrada;
     string comando, arquivo="C:/Users/Suporte/Desktop/texte.txt";
     cout << "Digite o caminho do arquivo a ser lido: " << endl;
@@ -20,30 +22,70 @@ void ler()
     if(entrada.is_open())
     {
         string s;
-        getline(entrada,s);
-        stringstream ss(s);
-        ss >> comando;
-//        entrada >> comando;
-        if(comando=="dim")
+        while(getline(entrada, s))
         {
-            int largura = 0, altura = 0;
-            ss >> largura;
-            ss >> altura;
-            entrada >> largura;
-            entrada >> altura;
-            t = new Screen(altura, largura);
-        }
-        else if(comando=="brush")
-        {
-            char brush;
-            ss >> brush;
-            if(!ss.good()){
-                brush = ' ';
+            stringstream ss(s);
+            ss >> comando;
+            if(comando=="dim")
+            {
+                int largura = 0, altura = 0;
+                ss >> largura;
+                ss >> altura;
+                t(altura, largura);
             }
-            t.setBrush(brush);
+            else if(comando=="brush")
+            {
+                char brush;
+                ss >> brush;
+                if(!ss.good()){
+                    brush = ' ';
+                }
+                t.setBrush(brush);
+            }
+            else if(comando=="line")
+            {
+                int x0, x1, y0, y1;
+                ss>>x0;
+                ss>>y0;
+                ss>>x1;
+                ss>>y1;
+                f=new Reta(x0, y0, x1, y1);
+                f->draw(t);
+                cout << t;
+                delete(f);
+            }
+            else if(comando=="rectangle")
+            {
+                int x0, y0, largura, altura;
+                ss>>x0;
+                ss>>y0;
+                ss>>largura;
+                ss>>altura;
+                f=new Retangulo(x0, y0, largura, altura);
+                f->draw(t);
+                cout << t;
+                delete(f);
+            }
+            else if(comando=="circle")
+            {
+                int x0, y0, raio;
+                bool preenche;
+                ss>>x0;
+                ss>>y0;
+                ss>>raio;
+                ss>>preenche;
+                f=new Circulo(x0,y0,raio,preenche);
+                f->draw(t);
+                cout << t;
+                delete(f);
+            }
+            else
+            {
+                cout << "Comando não identificado" << endl;
+            }
+            t.clear();
         }
     }
-
 
 }
 
@@ -62,11 +104,11 @@ int main()
     cout << n;
     n.clear();
 
-    Circulo c(25, 25, 10, true);
+    Circulo c(25, 25, 20, true);
     c.draw(n);
     cout << n;
-    n.clear();
-*/
+    n.clear();*/
+
     ler();
     return 0;
 }
