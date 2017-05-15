@@ -1,0 +1,5 @@
+dim 100 100
+brush @
+line 10 10 20 20
+rectangle 30 30 10 20
+circle 20 20 10 true
