@@ -50,7 +50,7 @@ void Screen::setBrush(char brush)
 ostream& operator<<(ostream &os, Screen &t)
 {
     //mat[linha da matriz = eixo y][coluna da matriz = eixo x]
-    for(int y = t.nlin; y>=0;y--)
+    for(int y = t.nlin-1; y>=0;y--)
     {
         for(int x = 0; x<t.ncol;x++)
         {
