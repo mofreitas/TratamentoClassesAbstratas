@@ -16,8 +16,8 @@ void ler()
     FiguraGeometrica *f;
     ifstream entrada;
     ofstream saida;
-    string comando, arquivo_in="/home/jose/TratamentoClassesAbstratas/entrada.txt";
-    string arquivo_out="/home/jose/TratamentoClassesAbstratas/saida.txt";
+    string comando, arquivo_in="C:/Users/Suporte/Desktop/TratamentoClassesAbstratas-master/entrada.txt";
+    string arquivo_out="C:/Users/Suporte/Desktop/TratamentoClassesAbstratas-master/saida.txt";
     entrada.open(arquivo_in);
     saida.open(arquivo_out);
     if(entrada.is_open())
@@ -29,7 +29,7 @@ void ler()
             ss >> comando;
             if(!ss.good())
             {
-                cout << "Linha sem comando" << endl;
+                //cout << "Linha sem comando" << endl;
             }
             else if(comando=="dim")
             {
