@@ -23,7 +23,7 @@ public:
      */
     Circulo(int x, int y, int r, bool p);
     /**
-     * @brief Desenha um círculo na tela virtual
+     * @brief Desenha o círculo na tela virtual
      * @param t referência à um objeto da classe screen que representa a tela virtual do desenho
      */
     void draw(Screen &t);

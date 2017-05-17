@@ -22,7 +22,7 @@ public:
      */
     Retangulo(int x, int y, int largura, int altura);
     /**
-     * @brief Desenha um retângulo na tela virtual
+     * @brief Desenha o retângulo na tela virtual
      * @param t referência à um objeto da classe screen que representa a tela virtual do desenho
      */
     void draw(Screen &t);

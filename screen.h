@@ -42,10 +42,10 @@ public:
      */
     void setBrush(char brush);
     /**
-     * @brief operator <<
-     * @param os
-     * @param t
-     * @return
+     * @brief Sobrecarga do operador <<
+     * @param os referência à um objeto ostream
+     * @param t referência à um objeto da classe screen
+     * @return referência à um objeto ostream
      */
     friend ostream& operator<<(ostream &os, Screen &t);
 };

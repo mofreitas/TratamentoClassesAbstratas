@@ -15,10 +15,11 @@ void ler()
     Screen *t;
     FiguraGeometrica *f;
     ifstream entrada;
-    string comando, arquivo="/home/jose/TratamentoClassesAbstratas/teste.txt";
-    cout << "Digite o caminho do arquivo a ser lido: " << endl;
-    //cin >> arquivo;
-    entrada.open(arquivo);
+    ofstream saida;
+    string comando, arquivo_in="/home/jose/TratamentoClassesAbstratas/entrada.txt";
+    string arquivo_out="/home/jose/TratamentoClassesAbstratas/saida.txt";
+    entrada.open(arquivo_in);
+    saida.open(arquivo_out);
     if(entrada.is_open())
     {
         string s;
@@ -56,6 +57,7 @@ void ler()
                 f=new Reta(x0, y0, x1, y1);
                 f->draw(*t);
                 cout << *t;
+                saida << *t;
                 delete(f);
                 t->clear(); //limpardesenho
             }
@@ -69,6 +71,7 @@ void ler()
                 f=new Retangulo(x0, y0, largura, altura);
                 f->draw(*t);
                 cout << *t;
+                saida << *t;
                 delete(f);
                 t->clear(); //limpardesenho
             }
@@ -83,7 +86,8 @@ void ler()
                 f=new Circulo(x0,y0,raio,preenche);
                 f->draw(*t);
                 cout << *t;
-                delete(f);                
+                saida << *t;
+                delete(f);
                 t->clear(); //limpardesenho
             }
             else
@@ -93,6 +97,9 @@ void ler()
         }
         comando.clear();
     }
+    entrada.close();
+    saida.close();
+
 
 }
 

@@ -21,7 +21,7 @@ public:
      */
     Reta(int x0, int y0, int x1, int y1);
     /**
-     * @brief Desenha uma reta na tela virtual
+     * @brief Desenha o reta na tela virtual
      * @param t referência à um objeto da classe screen que representa a tela virtual do desenho
      */
     void draw(Screen &t);
