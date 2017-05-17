@@ -25,9 +25,9 @@ void Screen::setPixel(int x, int y)
 {
     //mat[linha da matriz = eixo y][coluna da matriz = eixo x]
     //testar condição para largura e altura diferentes
-    if(x<ncol&&y<nlin)
+    if(x<ncol&&x>=0&&y>=0&&y<nlin)
     {
-        mat[x][y]=brush;
+        mat[y][x]=brush;
     }
 }
 
@@ -57,7 +57,7 @@ ostream& operator<<(ostream &os, Screen &t)
             //ativar para exibição no terminal linux
             //os << setw(2);
             //no windows, configurar janela para 8x8
-            os << t.mat[x][y];
+            os << t.mat[y][x];
         }
         os << endl;
     }
